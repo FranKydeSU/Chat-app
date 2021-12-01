@@ -40,7 +40,7 @@ io.on('connection', (socket) => { // <= socket: object of connection
 
         socket.join(user.room) // <= join the individual room
 
-        socket.emit('message', generateMessage('System', 'Welcome'))
+        socket.emit('message', generateMessage('System', 'Welcome!'))
         socket.broadcast.to(user.room).emit('message', generateMessage('System', `${user.username} has joined!`))
         io.to(user.room).emit('roomData', {
             room: user.room,
